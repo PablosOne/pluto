@@ -13,6 +13,16 @@ use std::{collections::HashMap, str::FromStr};
 #[derive(CandidType, Deserialize, Clone)]
 pub struct HeaderField(String, String);
 
+impl HeaderField {
+    pub fn name(&self) -> &str {
+        &self.0
+    }
+
+    pub fn value(&self) -> &str {
+        &self.1
+    }
+}
+
 /// RawHttpRequest is the request type that is sent by the client.
 /// It is a raw version of HttpRequest. It is compatible with the Candid type.
 /// It is used in the 'http_request' and 'http_request_update' function of the canister and it is provided by the IC.
